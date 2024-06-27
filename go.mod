@@ -1,4 +1,4 @@
-module be_tubes
+module be-tubes
 
 go 1.20
 

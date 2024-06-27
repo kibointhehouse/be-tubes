@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-func TestInsertPresensi(t *testing.T) {
+func TestInsertMenu(t *testing.T) {
 	var jamKerja1 = model.JamKerja{
 		Durasi:     8,
 		Jam_masuk:  "08:00",
