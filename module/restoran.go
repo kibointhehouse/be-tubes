@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/ghaidafasya24/cobapackage/model"
-	"time"
+	// "time"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -30,37 +30,34 @@ func InsertOneDoc(db string, collection string, doc interface{}) (insertedID int
 	return insertResult.InsertedID
 }
 
-func InsertPresensi(db *mongo.Database, col string, long float64, lat float64, lokasi string, phonenumber string, checkin string, biodata model.Karyawan) (insertedID primitive.ObjectID, err error) {
-	presensi := bson.M{
-		"longitude":    long,
-		"latitude":     lat,
-		"location":     lokasi,
-		"phone_number": phonenumber,
-		"datetime":     primitive.NewDateTimeFromTime(time.Now().UTC()),
-		"checkin":      checkin,
-		"biodata":      biodata,
+// INSERT MENU
+func InsertMenu(db *mongo.Database, col string, nama string, harga float64, deskripsi string) (insertedID primitive.ObjectID, err error) {
+	menu := bson.M{
+		"nama":      nama,
+		"harga":     harga,
+		"deskripsi": deskripsi,
 	}
-	result, err := db.Collection(col).InsertOne(context.Background(), presensi)
+	result, err := db.Collection(col).InsertOne(context.Background(), menu)
 	if err != nil {
-		fmt.Printf("InsertPresensi: %v\n", err)
+		fmt.Printf("InsertMenu: %v\n", err)
 		return
 	}
 	insertedID = result.InsertedID.(primitive.ObjectID)
 	return insertedID, nil
 }
 
-func GetKaryawanFromPhoneNumber(phone_number string, db *mongo.Database, col string) (staf model.Presensi, errs error) {
-	karyawan := db.Collection(col)
-	filter := bson.M{"phone_number": phone_number}
-	err := karyawan.FindOne(context.TODO(), filter).Decode(&staf)
-	if err != nil {
-		if errors.Is(err, mongo.ErrNoDocuments) {
-			return staf, fmt.Errorf("no data found for phone number %s", phone_number)
-		}
-		return staf, fmt.Errorf("error retrieving data for phone number %s: %s", phone_number, err.Error())
-	}
-	return staf, nil
-}
+// func GetKaryawanFromPhoneNumber(phone_number string, db *mongo.Database, col string) (staf model.Presensi, errs error) {
+// 	karyawan := db.Collection(col)
+// 	filter := bson.M{"phone_number": phone_number}
+// 	err := karyawan.FindOne(context.TODO(), filter).Decode(&staf)
+// 	if err != nil {
+// 		if errors.Is(err, mongo.ErrNoDocuments) {
+// 			return staf, fmt.Errorf("no data found for phone number %s", phone_number)
+// 		}
+// 		return staf, fmt.Errorf("error retrieving data for phone number %s: %s", phone_number, err.Error())
+// 	}
+// 	return staf, nil
+// }
 
 func GetAllPresensi(db *mongo.Database, col string) (data []model.Presensi) {
 	karyawan := db.Collection(col)
@@ -112,7 +109,6 @@ func UpdatePresensi(db *mongo.Database, col string, id primitive.ObjectID, long 
 	}
 	return nil
 }
-
 
 func DeletePresensiByID(_id primitive.ObjectID, db *mongo.Database, col string) error {
 	karyawan := db.Collection(col)

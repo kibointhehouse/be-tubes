@@ -13,5 +13,11 @@ type Menu struct {
 
 type Kategori struct {
 	ID            primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
-	Nama_Kategori string             `bson:"nama_kategori,omitempty" json:"nama_kategori,omitempty"`
+	Nama_kategori string             `bson:"nama_kategori,omitempty" json:"nama_kategori,omitempty"`
+}
+
+type BahanBaku struct {
+	ID              primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+	Nama_bahan_baku string             `bson:"nama_bahan_baku,omitempty" json:"nama_bahan_baku,omitempty"`
+	Jumlah          string             `bson:"jumlah,omitempty" json:"jumlah,omitempty"`
 }
