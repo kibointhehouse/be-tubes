@@ -1,4 +1,4 @@
-module be-tubes
+module github.com/ghaidafasya24/be-tubes
 
 go 1.20
 
