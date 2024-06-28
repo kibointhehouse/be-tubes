@@ -9,6 +9,8 @@ type Menu struct {
 	Nama      string             `bson:"nama,omitempty" json:"nama,omitempty"`
 	Harga     float64            `bson:"harga,omitempty" json:"harga,omitempty"`
 	Deskripsi string             `bson:"deskripsi,omitempty" json:"deskripsi,omitempty"`
+	Kategori  Kategori           `bson:"kategori,omitempty" json:"kategori,omitempty"`
+	BahanBaku BahanBaku          `bson:"kategori,omitempty" json:"kategori,omitempty"`
 }
 
 type Kategori struct {
