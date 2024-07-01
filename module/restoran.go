@@ -49,6 +49,7 @@ func InsertMenu(db *mongo.Database, col string, menu model.Menu) (insertedID pri
 	return insertedID, nil
 }
 
+// ALL
 func GetAllMenu(db *mongo.Database, col string) (data []model.Menu) {
 	menurestoran := db.Collection(col)
 	filter := bson.M{}
@@ -63,7 +64,7 @@ func GetAllMenu(db *mongo.Database, col string) (data []model.Menu) {
 	return
 }
 
-
+// ID
 func GetMenuFromID(_id primitive.ObjectID, db *mongo.Database, col string) (menu model.Menu, errs error) {
 	menurestoran := db.Collection(col)
 	filter := bson.M{"_id": _id}
@@ -77,6 +78,7 @@ func GetMenuFromID(_id primitive.ObjectID, db *mongo.Database, col string) (menu
 	return menu, nil
 }
 
+// UPDATE
 func UpdateMenu(db *mongo.Database, col string, id primitive.ObjectID, nama string, harga float64, deskripsi string, kategori model.Kategori, bahanBaku model.BahanBaku) (err error) {
 	filter := bson.M{"_id": id}
 	update := bson.M{

@@ -11,17 +11,18 @@ import (
 
 // INSERT MENU
 func TestInsertMenu(t *testing.T) {
+	nama := "Kopi"
+	harga := 5000.0
+	deskripsi := "minuman dengan rasa spesial"
+
 	var kategori = model.Kategori{
 		Nama_kategori: "Minuman",
 	}
-	var bahanBaku = model.BahanBaku{
-		Nama_bahan_baku: "Susu",
-		Jumlah:          "1",
-	}
 
-	nama := "Milk Shake"
-	harga := 10000.0
-	deskripsi := "Minuman dengan rasa spesial"
+	var bahanBaku = model.BahanBaku{
+		Nama_bahan_baku: "Bubuk kopi, Air, Gula",
+		Jumlah:          "3",
+	}
 
 	menurestoran := model.Menu{
 		Nama:      nama,
@@ -61,7 +62,7 @@ func TestGetAll(t *testing.T) {
 
 // DELETE
 func TestDeleteMenuByID(t *testing.T) {
-	id := "667e27a6cccefc9e0156f40d" // ID data yang ingin dihapus
+	id := "667e5f1c0da481424d4fae0b" // ID data yang ingin dihapus
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		t.Fatalf("error converting id to ObjectID: %v", err)
