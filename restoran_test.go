@@ -16,11 +16,11 @@ func TestInsertMenu(t *testing.T) {
 	deskripsi := "minuman dengan rasa spesial"
 
 	var kategori = model.Kategori{
-		Nama_kategori: "Minuman",
+		Kategori: "Minuman",
 	}
 
 	var bahanBaku = model.BahanBaku{
-		Nama_bahan_baku: "Bubuk kopi, Air, Gula",
+		BahanBaku: "Bubuk kopi, Air, Gula",
 		Jumlah:          "3",
 	}
 
