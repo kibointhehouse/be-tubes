@@ -7,7 +7,7 @@ import (
 type Menu struct {
 	ID        primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Nama      string             `bson:"nama,omitempty" json:"nama,omitempty"`
-	Harga     string             `bson:"harga,omitempty" json:"harga,omitempty"`
+	Harga     float64            `bson:"harga,omitempty" json:"harga,omitempty"`
 	Deskripsi string             `bson:"deskripsi,omitempty" json:"deskripsi,omitempty"`
 	Kategori  Kategori           `bson:"kategori,omitempty" json:"kategori,omitempty"`
 	BahanBaku BahanBaku          `bson:"bahan_baku,omitempty" json:"bahan_baku,omitempty"`

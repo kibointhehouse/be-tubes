@@ -12,7 +12,7 @@ import (
 // INSERT MENU
 func TestInsertMenu(t *testing.T) {
 	nama := "Kopi"
-	harga := "10.000"
+	harga := 5000.0
 	deskripsi := "minuman dengan rasa spesial"
 
 	var kategori = model.Kategori{
