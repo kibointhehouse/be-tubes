@@ -59,7 +59,6 @@ func TestGetAll(t *testing.T) {
 	fmt.Println(data)
 }
 
-
 // DELETE
 func TestDeleteMenuByID(t *testing.T) {
 	id := "667e5f1c0da481424d4fae0b" // ID data yang ingin dihapus
