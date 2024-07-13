@@ -103,10 +103,10 @@ func UpdateMenu(db *mongo.Database, col string, id primitive.ObjectID, nama stri
 }
 
 func DeleteMenuByID(_id primitive.ObjectID, db *mongo.Database, col string) error {
-	karyawan := db.Collection(col)
+	menurestoran := db.Collection(col)
 	filter := bson.M{"_id": _id}
 
-	result, err := karyawan.DeleteOne(context.TODO(), filter)
+	result, err := menurestoran.DeleteOne(context.TODO(), filter)
 	if err != nil {
 		return fmt.Errorf("error deleting data for ID %s: %s", _id, err.Error())
 	}

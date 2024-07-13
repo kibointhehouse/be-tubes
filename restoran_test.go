@@ -61,7 +61,7 @@ func TestGetAll(t *testing.T) {
 
 // DELETE
 func TestDeleteMenuByID(t *testing.T) {
-	id := "667e5f1c0da481424d4fae0b" // ID data yang ingin dihapus
+	id := "66924385d139dcb4ef889a90	" // ID data yang ingin dihapus
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		t.Fatalf("error converting id to ObjectID: %v", err)
